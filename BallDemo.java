@@ -34,14 +34,17 @@ public class BallDemo
 
         // draw the ground
         myCanvas.drawLine(50, ground, 550, ground);
-
-        int contador = 0;
-        Random x = new Random();
-        Random y = new Random();
-        Random diametro = new Random();
+        
         // crate and show the balls
-        for(int i=0; i<numBolas; i++){        
-            BouncingBall ball = new BouncingBall(50+(15*i), 50, 16, Color.RED, ground, myCanvas);
+        Random random = new Random();       
+        // crate and show the balls
+        for(int i=0; i<numBolas; i++){  
+            int x = random.nextInt(50)+10;
+            int y =random.nextInt(60)+10;
+            int diametro= random.nextInt(25)+5;             
+            Color color = new Color(random.nextInt(256),random.nextInt(256),random.nextInt(256));
+            
+            BouncingBall ball = new BouncingBall(x, 50, diametro, color, ground, myCanvas);
             ball.draw();
             bolas.add(ball);            
         }
